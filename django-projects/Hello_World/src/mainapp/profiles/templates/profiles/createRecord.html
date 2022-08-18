@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Hello World{% endblock %}
+
+{% block header %}Create A New Profile{% endblock %}
+
+{% block content %}
+
+
+<div>
+    <form method="POST" action="{% url 'createRecord' %}">
+        <div>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.as_p }}
+        </div>
+        <div>
+            <input type="submit" value="Create New Profile" name="Save_Item">
+            <a href="{% url 'profiles_page' %}"><button type="button" value="Cancel">Cancel</button></a>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

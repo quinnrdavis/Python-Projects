@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Hello World{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+
+
+{% for profile in profiles %}
+    <ul>
+        <li>{{ profile.fname | title }} {{ profile.lname | title }}</li>
+    </ul>
+{% endfor %}
+
+
+{% endblock %}

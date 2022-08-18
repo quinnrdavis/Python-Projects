@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Hello World{% endblock %}
+
+{% block header %}Delete Confirmation{% endblock %}
+
+{% block content %}
+
+
+<form method="POST" action=".">
+    {% csrf_token %}
+    <h2>Confirm Delete</h2>
+    <p>Are you sure you would like to delete "{{ item.fname | title }} {{ item.lname | title }}" from the database?</p>
+
+    {{ item.as_p }}
+
+    <input type="submit" value="Yes, delete it!">
+    <a href="{% url 'profiles_page' %}"><button type="button">Cancel</button></a>
+</form>
+
+
+{% endblock %}
